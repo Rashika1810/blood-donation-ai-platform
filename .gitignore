@@ -35,3 +35,7 @@ coverage/
 
 # Docker overrides
 docker-compose.override.yml
+
+venv/
+__pycache__/
+*.pyc
