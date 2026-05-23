@@ -32,6 +32,7 @@ const createRequest = async (req, res) => {
       urgency,
       requestedBy: req.user.id,
     });
+    req.app.get("io").emit("newRequest",request);
     res.status(201).json(request);
   } catch (error) {
     console.log(error);
