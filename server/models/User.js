@@ -30,6 +30,14 @@ const userSchema=mongoose.Schema({
     city:{
         type:String
     },
+    location:{
+        latitude:{
+            type:Number
+        },
+        longitude:{
+            type:Number
+        }
+    },
     available:{
         type:Boolean,
         default:true

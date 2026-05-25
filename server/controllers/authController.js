@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, bloodGroup, city } = req.body;
+    const { name, email, password, bloodGroup, city,latitude,longitude } = req.body;
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -18,6 +18,10 @@ const registerUser = async (req, res) => {
       password: hashedPassword,
       bloodGroup,
       city,
+      location:{
+        latitude,
+        longitude
+      }
     });
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",

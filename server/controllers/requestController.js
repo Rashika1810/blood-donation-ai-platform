@@ -32,7 +32,7 @@ const createRequest = async (req, res) => {
       urgency,
       requestedBy: req.user.id,
     });
-    req.app.get("io").emit("newRequest",request);
+    req.app.get("io").emit("newRequest", request);
     res.status(201).json(request);
   } catch (error) {
     console.log(error);
@@ -71,7 +71,7 @@ const getMatchingDonors = async (req, res) => {
 
     const donors = await User.find({
       bloodGroup: {
-        $in: compatibility[request.bloodGroup]
+        $in: compatibility[request.bloodGroup],
       },
       city: request.city,
       available: true,
@@ -84,4 +84,20 @@ const getMatchingDonors = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-module.exports = { createRequest, getAllRequest, getMatchingDonors };
+
+const getDonorLocations = async (req, res) => {
+  try {
+    const donors = await User.find({
+      available: true,
+
+      role: "donor",
+    });
+
+    res.json(donors);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+module.exports = { createRequest, getAllRequest, getMatchingDonors,getDonorLocations };

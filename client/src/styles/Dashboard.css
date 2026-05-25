@@ -334,3 +334,30 @@
     gap: 20px;
   }
 }
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-link {
+  text-decoration: none;
+  width: fit-content;
+}
+
+.dashboard-link h2 {
+  margin: 0;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: white;
+
+  transition: 0.3s;
+}
+
+.dashboard-link h2:hover {
+  color: #ff7d7d;
+
+  text-shadow: 0 0 12px rgba(255, 0, 0, 0.7);
+}
