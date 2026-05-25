@@ -35,7 +35,7 @@ export const Dashboard = () => {
     };
   }, []);
 
-  const criticalCount = requests.filter((r) => r.urgency === "Critical").length;
+  const criticalCount = requests.filter((r) => r.urgency === "critical").length;
 
   const cityCount = new Set(requests.map((r) => r.city)).size;
 

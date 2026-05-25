@@ -13,14 +13,22 @@
 
   align-items: center;
 
-  padding: 18px 50px;
-
-  backdrop-filter: blur(20px);
+  padding: 18px 40px;
 
   background: rgba(255, 255, 255, 0.05);
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
 }
+
+/* LEFT */
 
 .nav-left {
   display: flex;
@@ -31,7 +39,67 @@
 }
 
 .nav-left h2 {
+  margin: 0;
+
   font-size: 28px;
+
+  font-weight: 700;
+
+  color: white;
+}
+
+.sub-text {
+  font-size: 12px;
+
+  color: #ffb0b0;
+
+  letter-spacing: 1px;
+}
+
+/* RIGHT SIDE */
+
+.nav-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.create-link {
+  text-decoration: none;
+}
+
+.create-btn {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px 22px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background: linear-gradient(90deg, #ff3434, #870000);
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+}
+
+.create-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.45);
 }
 
 .live-status {
@@ -39,23 +107,27 @@
 
   align-items: center;
 
-  gap: 8px;
+  gap: 10px;
 
-  padding: 10px 20px;
+  padding: 12px 18px;
 
-  border-radius: 40px;
+  border-radius: 50px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+
+  color: white;
 }
 
 .live-dot {
-  height: 10px;
-
   width: 10px;
+
+  height: 10px;
 
   border-radius: 50%;
 
   background: red;
+
+  box-shadow: 0 0 15px red;
 
   animation: blink 1s infinite;
 }
@@ -229,6 +301,28 @@
 
   .navbar {
     padding: 20px;
+
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+  .nav-right {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .create-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .live-status {
+    width: 100%;
+
+    justify-content: center;
   }
 
   .dashboard-content {

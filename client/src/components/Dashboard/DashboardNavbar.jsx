@@ -1,19 +1,49 @@
 import BloodLogo from "../BloodLogo";
+import { Link } from "react-router-dom";
+import { PlusCircle } from "lucide-react";
 
 const DashboardNavbar = () => {
   return (
-    <div className="navbar">
+    <nav className="navbar">
+
       <div className="nav-left">
         <BloodLogo size={60} />
 
-        <h2>Blood AI</h2>
+        <div>
+          <h2>Blood AI</h2>
+
+          <span className="sub-text">
+            Smart Donation Network
+          </span>
+        </div>
       </div>
 
-      <div className="live-status">
-        <div className="live-dot"></div>
-        Live Updates
+      <div className="nav-right">
+
+        <Link
+          to="/create"
+          className="create-link"
+        >
+          <button className="create-btn">
+
+            <PlusCircle size={18}/>
+
+            Create Request
+
+          </button>
+        </Link>
+
+        <div className="live-status">
+
+          <div className="live-dot"></div>
+
+          Live Updates
+
+        </div>
+
       </div>
-    </div>
+
+    </nav>
   );
 };
 

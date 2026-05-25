@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const BloodLogo = ({ size = 120 }) => {
   return (
+    <Link to="/dashboard">
     <div className="logo-container">
       <svg
         width={size}
@@ -66,7 +69,7 @@ const BloodLogo = ({ size = 120 }) => {
       </svg>
 
       <div className="pulse-ring"></div>
-    </div>
+    </div></Link>
   );
 };
 
