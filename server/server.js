@@ -8,6 +8,7 @@ const connectDB=require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const requestRoutes = require("./routes/requestRoutes");
+const responseRoutes = require("./routes/responseRoutes");
 
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.get("/",(req,res)=>{
 app.use("/api/auth",authRoutes)
 app.use("/api/user",userRoutes)
 app.use("/api/request",requestRoutes)
+app.use("/api/response",responseRoutes)
 
 io.on("connection",(socket)=>{
     console.log("User connected:",socket.id);

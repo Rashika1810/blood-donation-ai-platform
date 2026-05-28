@@ -29,9 +29,18 @@ export const Dashboard = () => {
     };
 
     socket.on("newRequest", handleNewRequest);
+    socket.on(
+      "donorAccepted",
+
+      (data) => {
+        alert("New donor accepted request");
+      },
+    );
 
     return () => {
-      socket.off("newRequest", handleNewRequest);
+      socket.off("newRequest");
+
+      socket.off("donorAccepted");
     };
   }, []);
 

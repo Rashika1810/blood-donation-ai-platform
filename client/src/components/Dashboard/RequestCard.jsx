@@ -1,4 +1,5 @@
 import { MapPin, Building2, Droplets, AlertTriangle } from "lucide-react";
+import api from "../../services/api";
 
 const RequestCard = ({ request }) => {
   const urgencyColor = () => {
@@ -11,6 +12,18 @@ const RequestCard = ({ request }) => {
 
       default:
         return "low";
+    }
+  };
+
+  const handleAcceptRequest = async (requestId) => {
+    try {
+      const response=await api.post("/response/acceptRequest", { requestId });
+      console.log(response);
+      alert("Accepted");
+    } catch (error) {
+      console.log(error);
+
+      alert("Already responded");
     }
   };
 
@@ -46,7 +59,12 @@ const RequestCard = ({ request }) => {
         </p>
       </div>
 
-      <button className="donate-btn">Respond</button>
+      <button
+        className="donate-btn"
+        onClick={() => handleAcceptRequest(request._id)}
+      >
+      Accept Request
+      </button>
     </div>
   );
 };
